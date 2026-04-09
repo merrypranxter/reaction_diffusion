@@ -1,0 +1,516 @@
+{
+  "schema_version": "1.0",
+  "model": "gray-scott",
+  "description": "Rich visual character descriptions for all 19 Gray-Scott / Pearson pattern types. Designed for use in generative AI workflows, prompt engineering, and creative tool integration.",
+  "types": [
+    {
+      "type": "R",
+      "name": "Uniform Red",
+      "F": 0.014,
+      "k": 0.057,
+      "visual_character": "A featureless, chemically exhausted plane. No structure emerges — the activator (V) is fully consumed and the field settles to a deep, flat red. Visually analogous to an overexposed photographic plate or an annealed metal surface.",
+      "emergence_behavior": "Starting from any seed condition, transient waves quickly decay. Within a few hundred iterations the entire field collapses to the uniform low-V state. No stable structures survive.",
+      "visual_scale": "Not applicable — structure-free by definition.",
+      "density": "Uniform. Spatial density 0.",
+      "material_associations": ["annealed metal", "monochrome resin", "overexposed film", "blank canvas"],
+      "mood": ["silent", "consumed", "finished", "absolute"],
+      "ai_prompt_keywords": [
+        "uniform deep red field",
+        "featureless chemical plane",
+        "exhausted reaction surface",
+        "monochrome flat texture",
+        "zero-structure abstract"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "near-zero throughout",
+        "suggested_palette": "deep crimson to near-black",
+        "contrast_tip": "No contrast available. Best used as a reference or void space."
+      },
+      "use_cases": ["background void", "transition state", "reference baseline"]
+    },
+    {
+      "type": "B",
+      "name": "Uniform Blue",
+      "F": 0.050,
+      "k": 0.059,
+      "visual_character": "The opposite extreme from R — a uniformly saturated, calm, featureless field in which U dominates completely. Imagine a still, deep-blue ocean surface with no wind, no ripples, no life.",
+      "emergence_behavior": "Any perturbation rapidly smooths out. Feed rate is high enough to replenish U faster than V can consume it. All patterns dissolve into the calm equilibrium.",
+      "visual_scale": "Not applicable — structure-free.",
+      "density": "Uniform. Spatial density 0.",
+      "material_associations": ["still water", "clear sky", "polished sapphire", "calm resin pour"],
+      "mood": ["serene", "featureless", "infinite", "dissolved"],
+      "ai_prompt_keywords": [
+        "uniform deep blue field",
+        "featureless calm surface",
+        "dissolved reaction plane",
+        "monochrome azure texture",
+        "empty chemical equilibrium"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "near-zero throughout",
+        "suggested_palette": "sky blue to pure white",
+        "contrast_tip": "Pair with type R as a diptych — perfect contrast of extremes."
+      },
+      "use_cases": ["background fill", "calm void", "contrast to complex types", "transition target"]
+    },
+    {
+      "type": "α",
+      "name": "Wavelet Chaos",
+      "F": 0.010,
+      "k": 0.047,
+      "visual_character": "A turbulent, never-settling sea of short-lived wave packets and nascent spirals. Reminiscent of disturbed water viewed from above — patches of coherent wavelets constantly forming, colliding, and dissolving. No two moments are the same.",
+      "emergence_behavior": "Immediately active from any seed. Spirals emerge, rotate briefly, then destabilize as neighboring spirals collide. The system never reaches steady state — it sustains continuous spatiotemporal chaos indefinitely.",
+      "visual_scale": "Medium wavelength. Coherent patches span roughly 15–40 pixels at 512² resolution.",
+      "density": "Moderate. Roughly 30–40% of the field is in the V-rich (activated) state at any moment.",
+      "material_associations": ["disturbed water surface", "atmospheric turbulence", "breaking surf foam", "aurora shimmer", "magnetic reconnection"],
+      "mood": ["turbulent", "alive", "restless", "electric", "oceanic"],
+      "ai_prompt_keywords": [
+        "chaotic wave interference pattern",
+        "fluid turbulence viewed from above",
+        "overlapping spiral waves",
+        "reaction-diffusion chaos texture",
+        "turbulent biological medium",
+        "cellular automaton noise field",
+        "atmospheric vortex interference"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "chaotic 0–0.5 fluctuations",
+        "suggested_palette": "dark teal to bright cyan (V channel), or inferno colormap for activity",
+        "contrast_tip": "Use du/dt coloring (Munafo mode) to highlight the most active wavefronts in vivid white."
+      },
+      "use_cases": ["dynamic background texture", "noise field generation", "animated shader base", "chaos reference pattern"]
+    },
+    {
+      "type": "β",
+      "name": "Ocean Voids",
+      "F": 0.014,
+      "k": 0.039,
+      "visual_character": "A sweeping blue field periodically interrupted by red voids — dark holes punched through a luminous ocean. The voids drift, merge, and spawn new ones in a slow, stately rhythm. Like viewing bioluminescent plankton blooms from altitude, with dark dead patches drifting through.",
+      "emergence_behavior": "Begins with spiral-wave activity similar to α. Over hundreds of iterations, the spirals organize into larger-scale traveling waves. Periodic voids (low-V regions) appear, grow, and are swept by the wavefronts. Motion is sustained chaotically.",
+      "visual_scale": "Large-scale voids (50–100 pixels diameter) embedded in fine wave texture.",
+      "density": "Low to moderate V density. Voids occupy 20–40% of field.",
+      "material_associations": ["aerial ocean photography", "deep sea bioluminescence", "Jovian atmosphere bands", "blood circulation imaging", "petri dish culture"],
+      "mood": ["oceanic", "deep", "mysterious", "drifting", "planetary"],
+      "ai_prompt_keywords": [
+        "bioluminescent ocean waves with dark voids",
+        "aerial view of turbulent sea",
+        "Jovian atmosphere bands",
+        "dark holes drifting through luminous fluid",
+        "periodic void patterns in chemical waves",
+        "deep-sea organism bloom",
+        "cellular vortex field"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "chaotic waves 0–0.5, voids near 0",
+        "suggested_palette": "deep navy to electric blue (waves), black (voids)",
+        "contrast_tip": "Invert the V channel for a white-on-dark display reminiscent of medical imaging."
+      },
+      "use_cases": ["animated ocean texture", "atmospheric shader", "void-field generative art", "organism simulation background"]
+    },
+    {
+      "type": "γ",
+      "name": "Unstable Stripes",
+      "F": 0.022,
+      "k": 0.051,
+      "visual_character": "Sinuous, worm-like stripes that constantly rearrange themselves. Grain boundaries form and dissolve — the stripes align locally but never globally. The texture looks like fingerprint ridges or wood grain that never settles, always rearranging its direction.",
+      "emergence_behavior": "Stripes emerge within the first 500–1000 iterations from a disordered seed. Grain boundary events — T-junctions, stripe endings, curvature-driven reorientation — continue indefinitely. The system is periodic (oscillatory) in local character but never globally static.",
+      "visual_scale": "Stripe wavelength ~10–20 pixels at 512². Multiple grain domains of 50–150 pixel extent.",
+      "density": "Moderate. Stripes cover roughly 40–60% of the field.",
+      "material_associations": ["fingerprint ridges", "wood grain", "muscle fiber cross-section", "geological stratum", "moiré fabric", "sand dune ripples"],
+      "mood": ["restless", "biological", "ordered-yet-chaotic", "woven", "organic"],
+      "ai_prompt_keywords": [
+        "fingerprint ridge pattern in motion",
+        "wood grain rearranging itself",
+        "unstable stripe phase",
+        "organic worm-like texture",
+        "grain boundary dynamics",
+        "geological stratum pattern",
+        "biological tissue cross-section"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "oscillating 0.1–0.4 in stripes",
+        "suggested_palette": "warm cream to burnt sienna (wood grain feel), or black-to-white for fingerprint aesthetic",
+        "contrast_tip": "Threshold at V=0.2 for a binary stripe rendering. Animate the threshold to show wave motion."
+      },
+      "use_cases": ["textile pattern generation", "fabric shader", "fingerprint simulation", "biological tissue texture", "generative wallpaper"]
+    },
+    {
+      "type": "δ",
+      "name": "Turing Spots",
+      "F": 0.030,
+      "k": 0.055,
+      "visual_character": "The quintessential Turing pattern — perfectly arranged negative spots (dark holes) in a hexagonal lattice on a light field. Calm, geometric, almost crystalline. Strikingly similar to cheetah spots, leopard skin, or the eye pattern on a butterfly wing. The geometry feels inevitable, like close-packing of circles.",
+      "emergence_behavior": "Emerges from uniform noise after ~2000–4000 iterations via symmetry-breaking instability. The hexagonal arrangement crystallizes gradually — spots nucleate, jostle into position, and then freeze. Truly static once settled.",
+      "visual_scale": "Spot diameter ~15–25 pixels at 512². Center-to-center spacing ~25–35 pixels.",
+      "density": "Regular. Spots occupy ~30% of field, background ~70%.",
+      "material_associations": ["cheetah spots", "leopard skin", "butterfly wing eyespots", "bubble raft", "close-packed atomic lattice", "sea urchin surface", "polka dots"],
+      "mood": ["geometric", "biological", "orderly", "natural", "calming"],
+      "ai_prompt_keywords": [
+        "hexagonal spot array Turing pattern",
+        "cheetah spot arrangement",
+        "butterfly wing eyespot lattice",
+        "negative spots on light background",
+        "honeycomb vacancy pattern",
+        "biological polka dot texture",
+        "crystalline spot array",
+        "symmetry-breaking spot formation"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "sharp peaks 0.2–0.45 at spot centers, near-0 background",
+        "suggested_palette": "ivory/cream background with dark spots — classic cheetah palette; or gold background with black spots for leopard",
+        "contrast_tip": "Map V>0.15 to spot color, V<0.05 to background. Sharp threshold = graphic look; smooth = biological look."
+      },
+      "use_cases": ["textile design", "animal skin simulation", "pattern library reference", "generative polka dot system", "Turing pattern demonstration"]
+    },
+    {
+      "type": "ε",
+      "name": "Chaotic Mitosis",
+      "F": 0.018,
+      "k": 0.055,
+      "visual_character": "A constantly changing field of spots that grow, elongate, pinch, and split like dividing cells — then do it all over again. Some spots merge; others escape as rings that travel across the field. Chaotic, alive, reminiscent of time-lapse biology. The closest reaction-diffusion pattern to actual cell division.",
+      "emergence_behavior": "Begins with a few spots from the seed. Each spot grows spherically until it elongates along a longer axis and pinches into two daughter spots (mitosis). The daughters then repeat the cycle. Chaotic because the splitting direction and timing vary unpredictably. Never reaches steady state.",
+      "visual_scale": "Spots 10–30 pixels diameter, vary widely. Field constantly restructuring.",
+      "density": "Variable 20–50% V-occupied. Fluctuates as spots split and merge.",
+      "material_associations": ["dividing cells (biology)", "amoeba colony", "soap bubble splitting", "lava lamp globules", "protist culture", "bacterial colony growth"],
+      "mood": ["alive", "chaotic", "biological", "visceral", "growing"],
+      "ai_prompt_keywords": [
+        "dividing cells time-lapse pattern",
+        "mitotic cell division texture",
+        "chaotic blob splitting field",
+        "amoeba colony viewed from above",
+        "organic globule mitosis",
+        "lava lamp chaotic blobs",
+        "cellular automaton growth pattern"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "high inside spots 0.25–0.5, near-0 outside",
+        "suggested_palette": "dark magenta spots on black, or green blobs on dark — laboratory microscopy aesthetic",
+        "contrast_tip": "Animate with du/dt channel to highlight splitting moments in white — dramatic for video."
+      },
+      "use_cases": ["biology simulation visualization", "generative animation", "cell division reference art", "living texture generation", "game of life analog"]
+    },
+    {
+      "type": "ζ",
+      "name": "Stable Chaotic Spots",
+      "F": 0.022,
+      "k": 0.061,
+      "visual_character": "Similar to epsilon's mitotic spots but calmer and more symmetrical. The spots divide less frequently and maintain more regular shapes between events. Think of cells in a slowly growing colony versus a tumor — orderly enough to be beautiful, alive enough to keep moving.",
+      "emergence_behavior": "Spot pattern emerges and undergoes mitosis, but with longer pause times between splits. Subtle pulsing oscillation of spot size is visible. Eventually reaches a near-steady state with only occasional reorganization events.",
+      "visual_scale": "Spots 15–25 pixels diameter. More regular than ε.",
+      "density": "Moderate and more stable. 25–40% V-occupied.",
+      "material_associations": ["ordered cell colony", "bubble foam", "fish egg cluster", "spotted frog skin", "polka dot fabric"],
+      "mood": ["measured", "biological", "rhythmic", "pulsing", "alive"],
+      "ai_prompt_keywords": [
+        "ordered spot pattern with subtle motion",
+        "stable cell colony texture",
+        "pulsing dot array",
+        "slow-dividing cell culture",
+        "measured biological spot field",
+        "foam bubble cluster top-view"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "peaks at spot centers, smooth gradients outward",
+        "suggested_palette": "olive or amber spots on cream — frog skin or turtle shell aesthetic",
+        "contrast_tip": "Use Gaussian blur on V before coloring to soften spot edges for a biological photograph look."
+      },
+      "use_cases": ["cell culture visualization", "textile spot pattern", "biological reference art", "soft polka dot generator"]
+    },
+    {
+      "type": "η",
+      "name": "Spots and Worms",
+      "F": 0.034,
+      "k": 0.063,
+      "visual_character": "A rich mixed pattern: spots and short worm-like stripes coexist in the same field, creating an irregular, naturalistic texture. Some regions are spot-dominated, others stripe-dominated, creating apparent 'territories'. Like the flank of a giraffe where spots and stripes blend at transitions.",
+      "emergence_behavior": "Initially active with both spot and stripe formation. Oscillates periodically during development then reaches a stable mixed steady state. The boundary regions between spot and stripe zones are particularly complex.",
+      "visual_scale": "Spots 15–20px, worm segments 10–15px wide, 20–40px long. Mix varies across field.",
+      "density": "Moderate to high. 40–60% of field in V-rich state.",
+      "material_associations": ["giraffe flank pattern", "mixed terrain viewed from altitude", "animal skin transition zone", "coral texture", "brain coral surface"],
+      "mood": ["complex", "naturalistic", "mixed", "organic", "rich"],
+      "ai_prompt_keywords": [
+        "mixed spot-and-stripe animal pattern",
+        "giraffe flank texture",
+        "brain coral surface pattern",
+        "organic mixed blob and worm texture",
+        "reaction-diffusion mixed morphology",
+        "irregular biological tessellation"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "variable peaks in spots and stripes, 0.2–0.45",
+        "suggested_palette": "warm ochre and brown on cream — giraffe or dalmatian aesthetic",
+        "contrast_tip": "Color spots and stripes differently by using V gradient magnitude as a secondary channel."
+      },
+      "use_cases": ["animal skin pattern generation", "complex textile design", "biological morphology reference", "mixed-type shader exploration"]
+    },
+    {
+      "type": "θ",
+      "name": "Ring Growth Stripes",
+      "F": 0.030,
+      "k": 0.057,
+      "visual_character": "Blue seed spots expand as expanding rings, then the rings solidify into concentric stripe networks. The final pattern looks like tree rings, topographic contours, or the growth rings visible in a cut tree trunk. Static and geometric.",
+      "emergence_behavior": "Each initial seed point becomes a growing ring. As rings from different centers meet, they form complex interference patterns that eventually freeze into the concentric stripe network. Very characteristic transient ring phase before reaching steady state.",
+      "visual_scale": "Ring spacing ~12–20 pixels. Large concentric structures (100–200px diameter) centered on seed points.",
+      "density": "Medium-high stripe density once settled. 50–60% V-occupied.",
+      "material_associations": ["tree rings", "topographic contour map", "fingerprint (concentric zones)", "agate cross-section", "stone ripple", "sound wave visualization"],
+      "mood": ["geological", "historic", "concentric", "calm", "structured"],
+      "ai_prompt_keywords": [
+        "concentric ring growth pattern",
+        "tree ring cross-section texture",
+        "topographic contour map pattern",
+        "agate stone ring texture",
+        "interference ring pattern frozen in time",
+        "biological growth ring structure"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "alternating band structure 0–0.3",
+        "suggested_palette": "warm amber concentric bands on dark brown — agate stone or tree ring aesthetic",
+        "contrast_tip": "Map V to a stepped (quantized) colormap for topographic contour effect."
+      },
+      "use_cases": ["geological visualization", "tree-ring art generation", "concentric pattern design", "growth simulation reference"]
+    },
+    {
+      "type": "ι",
+      "name": "Molecular Negatons",
+      "F": 0.046,
+      "k": 0.0594,
+      "visual_character": "Small, discrete, negative-space objects — dark spots on a light field — that interact at distance like molecules. They repel each other and maintain characteristic spacing without merging. Resembles a 2D gas of hard-sphere molecules, or the dot pattern of a grainy photograph.",
+      "emergence_behavior": "Negatons (negative spots, low-V islands in high-V sea) form quickly and reach a stable, non-mitotic configuration. They drift very slowly and interact electrostatically (via diffusion fields). True steady-state class 2 behavior.",
+      "visual_scale": "Negaton diameter ~8–15 pixels. Characteristic separation distance ~25–40 pixels.",
+      "density": "Low V. Negatons are dark spots (low V) on bright background. ~15–25% negaton coverage.",
+      "material_associations": ["molecule gas top view", "negatively doped semiconductor", "photographic film grain", "reverse polka dot", "dark matter simulation 2D"],
+      "mood": ["molecular", "discrete", "scientific", "sparse", "physical"],
+      "ai_prompt_keywords": [
+        "molecular negaton pattern",
+        "dark spots on light field",
+        "2D molecular gas simulation",
+        "reverse polka dot texture",
+        "discrete object spacing pattern",
+        "hard sphere packing texture",
+        "film grain analog pattern"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "high background ~0.25, dips to near-0 at negaton centers",
+        "suggested_palette": "bright white/cyan background with dark blue or black negatons — scientific imaging aesthetic",
+        "contrast_tip": "Invert V channel for positive spots. Threshold V<0.08 to isolate negaton positions as a point field."
+      },
+      "use_cases": ["molecular simulation art", "pattern spacing reference", "particle system initialization", "scientific visualization aesthetic"]
+    },
+    {
+      "type": "κ",
+      "name": "Hedgerow Mazes",
+      "F": 0.050,
+      "k": 0.063,
+      "visual_character": "Long, meandering stripes that bifurcate, dead-end, and form disconnected maze-like networks. The labyrinthine topology is reminiscent of hedge mazes, river delta channels from altitude, or the branching pattern of lightning. No closed loops — the topology is tree-like.",
+      "emergence_behavior": "Stripes grow from seed points, bifurcate at angles, and stop when they approach other stripes. The maze topology is fixed once growth terminates — a class 2-a static pattern. Very slow convergence, may take 5000–10000 iterations.",
+      "visual_scale": "Stripe width ~10–15 pixels, maze corridors ~15–25 pixels wide. Branching events every 50–100 pixels.",
+      "density": "Medium. Stripes occupy ~35–50% of field.",
+      "material_associations": ["hedge maze aerial view", "river delta", "lightning strike", "dendrite crystal structure", "tree branching pattern", "cracked mud"],
+      "mood": ["labyrinthine", "branching", "dendritic", "structured chaos", "navigable"],
+      "ai_prompt_keywords": [
+        "maze-like branching stripe pattern",
+        "aerial view of river delta",
+        "dendritic crystal growth texture",
+        "hedge maze overhead view",
+        "lightning branch pattern",
+        "labyrinthine reaction-diffusion texture",
+        "tree branch network aerial view"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "stripes at 0.2–0.35, gaps near 0",
+        "suggested_palette": "dark green stripes on light tan — hedge maze; or dark blue on white — river delta map",
+        "contrast_tip": "Skeletonize the V threshold image to get pure 1-pixel maze walls for graph analysis."
+      },
+      "use_cases": ["maze generation", "dendritic pattern design", "river delta visualization art", "lightning effect texture", "network diagram aesthetic"]
+    },
+    {
+      "type": "λ",
+      "name": "Mitotic Hexagons",
+      "F": 0.026,
+      "k": 0.061,
+      "visual_character": "Round soliton spots that divide and self-organize into a near-perfect hexagonal grid. The end state is a crystalline, honeycomb-like arrangement — more ordered than the chaos of epsilon, more biological than the cold lattice of delta. Like a carefully grown soap bubble raft.",
+      "emergence_behavior": "Spots emerge, undergo mitotic division, then migrate into hexagonal equilibrium positions. The crystallization process involves long-range rearrangement as each spot senses its neighbors. Final static state is a near-perfect triangular lattice.",
+      "visual_scale": "Spot diameter ~18–25 pixels. Lattice spacing ~30–40 pixels.",
+      "density": "Regular. ~35–45% V-covered.",
+      "material_associations": ["hexagonal close-packing", "honeycomb", "bee colony cap view", "soap bubble raft", "carbon nanotube cross-section", "protein crystal array"],
+      "mood": ["crystalline", "biological", "organized", "emergent", "hexagonal"],
+      "ai_prompt_keywords": [
+        "hexagonal spot lattice pattern",
+        "honeycomb-organized dots",
+        "self-organized spot hexagonal array",
+        "soap bubble raft top view",
+        "protein crystal surface texture",
+        "mitotic hexagonal growth pattern",
+        "emergent crystalline dot array"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "sharp peaks at lattice points 0.3–0.5, near-0 background",
+        "suggested_palette": "golden honeycomb yellow spots on dark brown — bee's wax aesthetic; or white spots on black for stark scientific look",
+        "contrast_tip": "Voronoi diagram of spot centers overlaid on the pattern reveals the hexagonal lattice geometry perfectly."
+      },
+      "use_cases": ["honeycomb pattern generation", "crystal lattice visualization", "protein array simulation", "hexagonal tile system seeding"]
+    },
+    {
+      "type": "μ",
+      "name": "Growing Worms",
+      "F": 0.046,
+      "k": 0.065,
+      "visual_character": "Long, parallel worm-like stripes that grow from their ends and reorganize until they run parallel. The final state is a beautiful, regular striped pattern — like rows of noodles or a corduroy fabric. More regular and longer than gamma's unstable stripes.",
+      "emergence_behavior": "Short worm stubs appear from seed and elongate from both ends. They steer toward parallelism, avoiding head-on collisions. The reorganization process is slow and satisfying to watch. Final static state is a grid of parallel stripes.",
+      "visual_scale": "Stripe width ~10–15 pixels, parallel spacing ~20–30 pixels. Very long (can span entire domain).",
+      "density": "High regularity. ~45–55% V-covered in parallel stripes.",
+      "material_associations": ["corduroy fabric", "noodles/pasta", "muscle fiber parallel arrangement", "zebra stripe (one direction)", "woven textile", "seismic wave pattern"],
+      "mood": ["parallel", "rhythmic", "orderly", "woven", "textile-like"],
+      "ai_prompt_keywords": [
+        "parallel worm stripe pattern",
+        "corduroy fabric texture",
+        "aligned organic stripe field",
+        "zebra stripe regular pattern",
+        "noodle-like parallel worms",
+        "muscle fiber parallel texture",
+        "woven biological strand pattern"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "alternating bands 0.05–0.35",
+        "suggested_palette": "dark stripes on light background — zebra or barcode aesthetic; or warm/cool alternation for woven fabric feel",
+        "contrast_tip": "Apply orientation coloring (using V gradient direction) to turn uniform stripes into rainbow-oriented worm field."
+      },
+      "use_cases": ["stripe pattern generation", "textile design", "zebra/tiger stripe simulation", "corduroy shader", "seismic visualization aesthetic"]
+    },
+    {
+      "type": "ν",
+      "name": "Inert Solitons",
+      "F": 0.054,
+      "k": 0.067,
+      "visual_character": "Isolated, perfectly stable spots that neither divide nor die — they just exist, very slowly drifting apart under exponential repulsion. The quietest, most isolated of all spot types. Like atoms frozen in a diffuse lattice, or isolated bubbles in thick viscous fluid that barely move.",
+      "emergence_behavior": "Solitons form from the seed and immediately stabilize. No mitosis. No oscillation. They drift apart on logarithmic timescales — effectively static on human-observation timescales. True class 2 behavior.",
+      "visual_scale": "Soliton diameter ~12–20 pixels. Widely separated, characteristic distance ~50–100 pixels depending on initial density.",
+      "density": "Very sparse. ~10–20% V-covered.",
+      "material_associations": ["isolated atoms in lattice", "bubbles in thick resin", "sparse stellar field (nebula scale)", "floating islands from altitude", "calm lava dome field"],
+      "mood": ["isolated", "ancient", "still", "eternal", "sparse"],
+      "ai_prompt_keywords": [
+        "isolated stable dots sparse field",
+        "inert soliton particle field",
+        "frozen atom lattice 2D",
+        "sparse bubble suspension texture",
+        "calm isolated spot pattern",
+        "eternal stable dot array",
+        "particles frozen in viscous medium"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "isolated peaks ~0.3–0.4, wide near-0 background",
+        "suggested_palette": "pure black background with small glowing spots — starfield or lava lamp aesthetic",
+        "contrast_tip": "Render only V>0.1 as bright; map rest to pure black for a starfield or particle system look."
+      },
+      "use_cases": ["particle system reference", "starfield texture generation", "minimal spot art", "isolated structure visualization"]
+    },
+    {
+      "type": "ξ",
+      "name": "Spirals",
+      "F": 0.010,
+      "k": 0.041,
+      "visual_character": "Large, majestic, sustained spiral waves similar to the Belousov-Zhabotinsky chemical reaction. Multiple spiral arms rotate around organizing centers. The field looks like a galaxy, a hurricane viewed from space, or a pinwheel galaxy of chemical activity. Continuously rotating.",
+      "emergence_behavior": "Spirals emerge from initial wavelet chaos and grow to fill the domain. Multiple spiral cores form and compete — faster-rotating spirals consume slower ones in a process called 'spiral selection'. Sustained oscillation indefinitely.",
+      "visual_scale": "Spiral arm spacing ~20–35 pixels. Large spiral extent can span 50–30% of the domain.",
+      "density": "Variable across spiral arms. 0.1–0.4 V throughout.",
+      "material_associations": ["BZ chemical reaction", "galaxy arm structure", "hurricane eye view from space", "hypnotic spiral", "DNA double helix suggestion", "ammonite shell cross-section"],
+      "mood": ["hypnotic", "cosmic", "dynamic", "mesmerizing", "rotating"],
+      "ai_prompt_keywords": [
+        "spiral wave chemical reaction pattern",
+        "BZ reaction spiral waves",
+        "galaxy-like rotating spiral",
+        "hurricane aerial view spiral",
+        "hypnotic spiral wave field",
+        "rotating chemical oscillation",
+        "cosmic spiral arm texture",
+        "ammonite-inspired spiral pattern"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "oscillating waves 0.05–0.45",
+        "suggested_palette": "cyclic colormap (HSV or twilight) for spirals — colors complete a full rotation for each wave cycle",
+        "contrast_tip": "Phase-coloring with atan2(gradient_v, gradient_u) reveals spiral topology. Time-animate the phase offset for hypnotic rotation effect."
+      },
+      "use_cases": ["hypnotic loop animation", "BZ reaction demonstration", "cosmic art texture", "dynamic spiral generator", "oscillating field visualization"]
+    },
+    {
+      "type": "π",
+      "name": "U-Skate World",
+      "F": 0.062,
+      "k": 0.061,
+      "visual_character": "The most computationally complex of all Pearson types — stable, self-propelled localized structures that move through the field like autonomous agents. Each 'U-skate' is a small shape that maintains itself and moves at constant velocity. The field is a complex ecology of these moving entities. Wolfram class 4 — the edge of chaos, computationally universal.",
+      "emergence_behavior": "From initial seeds, complex localized moving structures emerge after extended transients (3000–8000 iterations). Once formed, they persist indefinitely, sometimes colliding and annihilating, sometimes spawning new ones. The pattern is chaotic but structured — like a billiard table of self-propelled particles.",
+      "visual_scale": "U-skate units: ~15–25 pixels. Complex internal structure. Move at ~0.1–0.3 pixels per iteration.",
+      "density": "Sparse to moderate. Complex dynamic density fluctuations.",
+      "material_associations": ["Langton's ant", "cellular automaton particles", "Game of Life gliders", "self-propelled particles (active matter)", "autonomous robot swarm", "Conway's Game of Life (complex)"],
+      "mood": ["alien", "computational", "autonomous", "complex", "emergent intelligence"],
+      "ai_prompt_keywords": [
+        "self-propelled localized chemical structures",
+        "reaction-diffusion gliders",
+        "computational chemical complexity",
+        "autonomous particle field",
+        "edge of chaos pattern",
+        "Wolfram class 4 cellular dynamics",
+        "active matter simulation",
+        "Game of Life analog pattern"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "complex localized structures 0–0.5 with moving boundaries",
+        "suggested_palette": "dark field with vivid moving structures — Matrix green on black, or high-contrast scientific colormap",
+        "contrast_tip": "Track individual U-skate positions over time and color by trajectory for path visualization art."
+      },
+      "use_cases": ["computational complexity demonstration", "active matter art", "autonomous agent visualization", "most complex RD pattern showcase"]
+    },
+    {
+      "type": "ρ",
+      "name": "Red Soap Bubbles",
+      "F": 0.090,
+      "k": 0.059,
+      "visual_character": "Closed, roughly circular regions of the red (low-U) state, bordered by blue stripes. The interiors are chemically distinct from the exterior — true topological regions with 'surface tension' behavior. Looks like soap bubble foam, dried paint cells, or Voronoi cells.",
+      "emergence_behavior": "Regions of low-U state nucleate and grow, but their boundaries (stripes) prevent them from merging until direct contact. The resulting closed-cell foam topology is static once formed. Very high feed rate stabilizes the structure quickly.",
+      "visual_scale": "Bubble diameter 30–80 pixels depending on initial conditions. Borders ~10px wide.",
+      "density": "Complex topology. Bubble interiors occupy 30–60% of field.",
+      "material_associations": ["soap bubble foam", "dried paint cell pattern", "Voronoi diagram", "cracked earth from above", "cell membrane network", "frosted glass"],
+      "mood": ["cellular", "frothy", "topological", "organic geometry", "surface tension"],
+      "ai_prompt_keywords": [
+        "soap bubble foam pattern",
+        "closed cell foam texture",
+        "Voronoi cell network pattern",
+        "cracked earth aerial view",
+        "biological cell membrane network",
+        "surface tension bubble geometry",
+        "organic closed-cell structure"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "high inside borders, low inside bubbles",
+        "suggested_palette": "warm red-orange interiors with cool blue borders — soap film iridescence aesthetic",
+        "contrast_tip": "Extract bubble borders only (V threshold) for a Voronoi/stained-glass coloring schema."
+      },
+      "use_cases": ["soap bubble art", "cellular pattern generation", "Voronoi diagram alternative", "cell biology visualization", "foam texture shader"]
+    },
+    {
+      "type": "σ",
+      "name": "Blue Soap Bubbles",
+      "F": 0.090,
+      "k": 0.057,
+      "visual_character": "Twin of rho but inverted — closed blue (high-U) regions bordered by narrow stripes. The blue bubbles have a cooler, cleaner aesthetic than the red bubbles of rho. Like cells in a microscope image, or the light cells in a stained-glass window.",
+      "emergence_behavior": "Same topological bubble formation as rho but with inverted chemical character. Blue regions (high U) nucleate and expand. Borders are negative stripes (low V). Static class 2-a.",
+      "visual_scale": "Bubble diameter 30–80 pixels. Narrower borders than rho (~8px).",
+      "density": "Blue bubble interiors 35–65% of field.",
+      "material_associations": ["stained glass blue cells", "microscope cell image", "bubble chamber photograph", "cooling magma cells", "ice crystal facets", "ocean foam from above"],
+      "mood": ["crystalline", "cool", "cellular", "structured", "transparent"],
+      "ai_prompt_keywords": [
+        "blue cell foam pattern",
+        "stained glass blue cell texture",
+        "microscopy cell field",
+        "cool bubble chamber pattern",
+        "blue closed-cell foam structure",
+        "ice crystal cellular network",
+        "clean biological cell grid"
+      ],
+      "color_mapping_recommendations": {
+        "V_field": "minimal inside cells, high at borders",
+        "suggested_palette": "pale ice-blue cells with dark indigo borders — stained glass aesthetic; or white cells on midnight blue",
+        "contrast_tip": "Invert from rho: where rho is warm, sigma is cool. Perfect pair for diptych or complementary texture sets."
+      },
+      "use_cases": ["cellular pattern generation", "stained glass design", "ice/crystal texture", "microscopy art reference", "complement to rho bubble pattern"]
+    }
+  ]
+}

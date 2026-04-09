@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gray-Scott WebGL</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; }
+        canvas { display: block; }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 20px;
+            font-family: monospace;
+            border-radius: 8px;
+        }
+        .control-group { margin: 10px 0; }
+        label { display: inline-block; width: 80px; }
+        input[type="range"] { width: 200px; }
+        .value { display: inline-block; width: 60px; text-align: right; }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <div class="control-group">
+            <label>Feed (F):</label>
+            <input type="range" id="feed" min="0.01" max="0.1" step="0.001" value="0.054">
+            <span class="value" id="feedVal">0.054</span>
+        </div>
+        <div class="control-group">
+            <label>Kill (k):</label>
+            <input type="range" id="kill" min="0.03" max="0.07" step="0.001" value="0.062">
+            <span class="value" id="killVal">0.062</span>
+        </div>
+        <div class="control-group">
+            <label>Steps/Frame:</label>
+            <input type="range" id="steps" min="1" max="50" step="1" value="16">
+            <span class="value" id="stepsVal">16</span>
+        </div>
+        <div class="control-group">
+            <button id="reset">Reset</button>
+            <button id="random">Random Seed</button>
+        </div>
+        <div id="info">Iteration: <span id="iter">0</span></div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        // Gray-Scott simulation in WebGL
+        class GrayScottWebGL {
+            constructor() {
+                this.size = 512;
+                this.iteration = 0;
+                this.params = {
+                    F: 0.054,
+                    k: 0.062,
+                    Du: 1.0,
+                    Dv: 0.5,
+                    dt: 1.0
+                };
+                this.init();
+            }
+
+            init() {
+                // Scene setup
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+                this.renderer = new THREE.WebGLRenderer({ antialias: false });
+                this.renderer.setSize(this.size, this.size);
+                this.renderer.setPixelRatio(1);
+                document.body.appendChild(this.renderer.domElement);
+
+                // Create render targets for ping-pong
+                this.targets = [
+                    this.createRenderTarget(),
+                    this.createRenderTarget()
+                ];
+                this.currentTarget = 0;
+
+                // Initialize with seed
+                this.seedTexture();
+
+                // Shaders
+                this.simMaterial = new THREE.ShaderMaterial({
+                    uniforms: {
+                        uState: { value: null },
+                        uResolution: { value: new THREE.Vector2(this.size, this.size) },
+                        uFeedRate: { value: this.params.F },
+                        uKillRate: { value: this.params.k },
+                        uDiffusionU: { value: this.params.Du },
+                        uDiffusionV: { value: this.params.Dv },
+                        uDeltaT: { value: this.params.dt }
+                    },
+                    vertexShader: `
+                        varying vec2 vUv;
+                        void main() {
+                            vUv = uv;
+                            gl_Position = vec4(position, 1.0);
+                        }
+                    `,
+                    fragmentShader: `
+                        precision highp float;
+                        uniform sampler2D uState;
+                        uniform vec2 uResolution;
+                        uniform float uFeedRate;
+                        uniform float uKillRate;
+                        uniform float uDiffusionU;
+                        uniform float uDiffusionV;
+                        uniform float uDeltaT;
+                        varying vec2 vUv;
+
+                        vec2 laplacian(sampler2D tex, vec2 uv, vec2 texel) {
+                            vec2 sum = vec2(0.0);
+                            sum += texture2D(tex, uv + vec2(-1,0)*texel).rg * 0.2;
+                            sum += texture2D(tex, uv + vec2(1,0)*texel).rg * 0.2;
+                            sum += texture2D(tex, uv + vec2(0,-1)*texel).rg * 0.2;
+                            sum += texture2D(tex, uv + vec2(0,1)*texel).rg * 0.2;
+                            sum += texture2D(tex, uv + vec2(-1,-1)*texel).rg * 0.05;
+                            sum += texture2D(tex, uv + vec2(1,-1)*texel).rg * 0.05;
+                            sum += texture2D(tex, uv + vec2(-1,1)*texel).rg * 0.05;
+                            sum += texture2D(tex, uv + vec2(1,1)*texel).rg * 0.05;
+                            sum -= texture2D(tex, uv).rg;
+                            return sum;
+                        }
+
+                        void main() {
+                            vec2 texel = 1.0 / uResolution;
+                            vec2 state = texture2D(uState, vUv).rg;
+                            float u = state.r;
+                            float v = state.g;
+                            vec2 lap = laplacian(uState, vUv, texel);
+                            float reaction = u * v * v;
+                            float du = uDiffusionU * lap.r - reaction + uFeedRate * (1.0 - u);
+                            float dv = uDiffusionV * lap.g + reaction - (uFeedRate + uKillRate) * v;
+                            gl_FragColor = vec4(
+                                clamp(u + uDeltaT * du, 0.0, 1.0),
+                                clamp(v + uDeltaT * dv, 0.0, 1.0),
+                                0.0, 1.0
+                            );
+                        }
+                    `
+                });
+
+                this.displayMaterial = new THREE.ShaderMaterial({
+                    uniforms: {
+                        uState: { value: null }
+                    },
+                    vertexShader: `
+                        varying vec2 vUv;
+                        void main() {
+                            vUv = uv;
+                            gl_Position = vec4(position, 1.0);
+                        }
+                    `,
+                    fragmentShader: `
+                        precision highp float;
+                        uniform sampler2D uState;
+                        varying vec2 vUv;
+                        void main() {
+                            float v = texture2D(uState, vUv).g;
+                            vec3 color = vec3(1.0 - v);
+                            gl_FragColor = vec4(color, 1.0);
+                        }
+                    `
+                });
+
+                this.plane = new THREE.Mesh(
+                    new THREE.PlaneGeometry(2, 2),
+                    this.simMaterial
+                );
+                this.scene.add(this.plane);
+            }
+
+            createRenderTarget() {
+                return new THREE.WebGLRenderTarget(this.size, this.size, {
+                    minFilter: THREE.NearestFilter,
+                    magFilter: THREE.NearestFilter,
+                    format: THREE.RGBAFormat,
+                    type: THREE.FloatType,
+                    wrapS: THREE.RepeatWrapping,
+                    wrapT: THREE.RepeatWrapping
+                });
+            }
+
+            seedTexture() {
+                const data = new Float32Array(this.size * this.size * 4);
+                for (let i = 0; i < this.size * this.size; i++) {
+                    data[i * 4] = 1.0;
+                    data[i * 4 + 1] = 0.0;
+                    data[i * 4 + 2] = 0.0;
+                    data[i * 4 + 3] = 1.0;
+                }
+
+                const cx = this.size / 2;
+                const cy = this.size / 2;
+                const r = this.size / 10;
+
+                for (let y = 0; y < this.size; y++) {
+                    for (let x = 0; x < this.size; x++) {
+                        if ((x-cx)**2 + (y-cy)**2 < r**2) {
+                            const idx = (y * this.size + x) * 4;
+                            data[idx] = 0.5;
+                            data[idx + 1] = 0.25;
+                        }
+                    }
+                }
+
+                const texture = new THREE.DataTexture(
+                    data, this.size, this.size, THREE.RGBAFormat, THREE.FloatType
+                );
+                texture.needsUpdate = true;
+
+                this.plane.material = new THREE.MeshBasicMaterial({ map: texture });
+                this.renderer.setRenderTarget(this.targets[0]);
+                this.renderer.render(this.scene, this.camera);
+                this.renderer.setRenderTarget(this.targets[1]);
+                this.renderer.render(this.scene, this.camera);
+                this.renderer.setRenderTarget(null);
+            }
+
+            step() {
+                const readIdx = this.currentTarget;
+                const writeIdx = 1 - this.currentTarget;
+
+                this.simMaterial.uniforms.uState.value = this.targets[readIdx].texture;
+                this.plane.material = this.simMaterial;
+                this.renderer.setRenderTarget(this.targets[writeIdx]);
+                this.renderer.render(this.scene, this.camera);
+
+                this.currentTarget = writeIdx;
+                this.iteration++;
+            }
+
+            render() {
+                this.displayMaterial.uniforms.uState.value =
+                    this.targets[this.currentTarget].texture;
+                this.plane.material = this.displayMaterial;
+                this.renderer.setRenderTarget(null);
+                this.renderer.render(this.scene, this.camera);
+            }
+
+            setParams(params) {
+                Object.assign(this.params, params);
+                this.simMaterial.uniforms.uFeedRate.value = this.params.F;
+                this.simMaterial.uniforms.uKillRate.value = this.params.k;
+            }
+        }
+
+        // Initialize
+        const sim = new GrayScottWebGL();
+
+        // Animation loop
+        let stepsPerFrame = 16;
+        function animate() {
+            requestAnimationFrame(animate);
+            for (let i = 0; i < stepsPerFrame; i++) {
+                sim.step();
+            }
+            sim.render();
+            document.getElementById('iter').textContent = sim.iteration;
+        }
+        animate();
+
+        // Controls
+        document.getElementById('feed').addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            document.getElementById('feedVal').textContent = val.toFixed(3);
+            sim.setParams({ F: val });
+        });
+
+        document.getElementById('kill').addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            document.getElementById('killVal').textContent = val.toFixed(3);
+            sim.setParams({ k: val });
+        });
+
+        document.getElementById('steps').addEventListener('input', (e) => {
+            stepsPerFrame = parseInt(e.target.value);
+            document.getElementById('stepsVal').textContent = stepsPerFrame;
+        });
+
+        document.getElementById('reset').addEventListener('click', () => {
+            sim.seedTexture();
+            sim.iteration = 0;
+        });
+
+        document.getElementById('random').addEventListener('click', () => {
+            sim.seedTexture();
+        });
+    </script>
+</body>
+</html>

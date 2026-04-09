@@ -1,0 +1,196 @@
+{
+  "model": "gray-scott",
+  "description": "Pearson classification of Gray-Scott pattern types",
+  "pearson_types": [
+    {
+      "type": "R",
+      "name": "Uniform Red",
+      "F": 0.014,
+      "k": 0.057,
+      "wolfram_class": 1,
+      "oscillation": "none",
+      "soliton_shape": "none",
+      "description": "Evolves to uniform red (low u) state"
+    },
+    {
+      "type": "B",
+      "name": "Uniform Blue",
+      "F": 0.050,
+      "k": 0.059,
+      "wolfram_class": 1,
+      "oscillation": "none",
+      "soliton_shape": "none",
+      "description": "Evolves to uniform blue (high u) state"
+    },
+    {
+      "type": "α",
+      "name": "Wavelet Chaos",
+      "F": 0.010,
+      "k": 0.047,
+      "wolfram_class": 3,
+      "oscillation": "chaotic",
+      "soliton_shape": "wavelets",
+      "description": "Spatiotemporal chaos of wavelets and fledgling spirals"
+    },
+    {
+      "type": "β",
+      "name": "Ocean Voids",
+      "F": 0.014,
+      "k": 0.039,
+      "wolfram_class": 3,
+      "oscillation": "chaotic",
+      "soliton_shape": "waves",
+      "description": "Waves on a blue ocean with periodic red voids"
+    },
+    {
+      "type": "γ",
+      "name": "Unstable Stripes",
+      "F": 0.022,
+      "k": 0.051,
+      "wolfram_class": 3,
+      "oscillation": "periodic",
+      "soliton_shape": "stripes",
+      "description": "Wormlike stripes with endless grain boundary events"
+    },
+    {
+      "type": "δ",
+      "name": "Turing Spots",
+      "F": 0.030,
+      "k": 0.055,
+      "wolfram_class": "2-a",
+      "oscillation": "none",
+      "soliton_shape": "negative_spots_hexagonal",
+      "description": "True Turing patterns: hexagonal array of negative spots"
+    },
+    {
+      "type": "ε",
+      "name": "Chaotic Mitosis",
+      "F": 0.018,
+      "k": 0.055,
+      "wolfram_class": 3,
+      "oscillation": "chaotic",
+      "soliton_shape": "spots",
+      "description": "Spots split via mitosis, rings grow until contact"
+    },
+    {
+      "type": "ζ",
+      "name": "Stable Chaotic Spots",
+      "F": 0.022,
+      "k": 0.061,
+      "wolfram_class": 3,
+      "oscillation": "subtle",
+      "soliton_shape": "spots",
+      "description": "More symmetrical and stable than epsilon"
+    },
+    {
+      "type": "η",
+      "name": "Spots and Worms",
+      "F": 0.034,
+      "k": 0.063,
+      "wolfram_class": 3,
+      "oscillation": "periodic_then_stops",
+      "soliton_shape": "mixed_spots_worms",
+      "description": "Mix of spots and short worms, reaches steady state"
+    },
+    {
+      "type": "θ",
+      "name": "Ring Growth Stripes",
+      "F": 0.030,
+      "k": 0.057,
+      "wolfram_class": "2-a",
+      "oscillation": "transient",
+      "soliton_shape": "negative_stripes_network",
+      "description": "Blue spots grow into concentric rings then stripes"
+    },
+    {
+      "type": "ι",
+      "name": "Molecular Negatons",
+      "F": 0.046,
+      "k": 0.0594,
+      "wolfram_class": 2,
+      "oscillation": "none",
+      "soliton_shape": "negatons",
+      "description": "Negative spots with molecule-like interaction"
+    },
+    {
+      "type": "κ",
+      "name": "Hedgerow Mazes",
+      "F": 0.050,
+      "k": 0.063,
+      "wolfram_class": "2-a",
+      "oscillation": "none",
+      "soliton_shape": "stripes_branching",
+      "description": "Stripes meander, form disconnected mazes"
+    },
+    {
+      "type": "λ",
+      "name": "Mitotic Hexagons",
+      "F": 0.026,
+      "k": 0.061,
+      "wolfram_class": "2-a",
+      "oscillation": "none",
+      "soliton_shape": "spots_hexagonal",
+      "description": "Solitons divide, arrange into hexagonal grids"
+    },
+    {
+      "type": "μ",
+      "name": "Growing Worms",
+      "F": 0.046,
+      "k": 0.065,
+      "wolfram_class": "2-a",
+      "oscillation": "none",
+      "soliton_shape": "worms",
+      "description": "Stripes grow from each end, reorganize to parallel"
+    },
+    {
+      "type": "ν",
+      "name": "Inert Solitons",
+      "F": 0.054,
+      "k": 0.067,
+      "wolfram_class": 2,
+      "oscillation": "none",
+      "soliton_shape": "solitons_static",
+      "description": "Non-mitotic solitons, drift apart exponentially slowly"
+    },
+    {
+      "type": "ξ",
+      "name": "Spirals",
+      "F": 0.010,
+      "k": 0.041,
+      "wolfram_class": 3,
+      "oscillation": "sustained_spiral",
+      "soliton_shape": "spirals",
+      "description": "Large sustained spirals similar to BZ reaction"
+    },
+    {
+      "type": "π",
+      "name": "U-Skate World",
+      "F": 0.062,
+      "k": 0.061,
+      "wolfram_class": 4,
+      "oscillation": "complex",
+      "soliton_shape": "mixed_negative",
+      "description": "Stable moving localized structures, computational complexity"
+    },
+    {
+      "type": "ρ",
+      "name": "Red Soap Bubbles",
+      "F": 0.090,
+      "k": 0.059,
+      "wolfram_class": "2-a",
+      "oscillation": "none",
+      "soliton_shape": "bubbles_red",
+      "description": "Closed red regions bordered by stripes with surface tension"
+    },
+    {
+      "type": "σ",
+      "name": "Blue Soap Bubbles",
+      "F": 0.090,
+      "k": 0.057,
+      "wolfram_class": "2-a",
+      "oscillation": "none",
+      "soliton_shape": "bubbles_blue",
+      "description": "Closed blue soap bubbles bordered by negative stripes"
+    }
+  ]
+}

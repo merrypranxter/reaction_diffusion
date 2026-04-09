@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  cdr-gpu:
+    build: .
+    image: chemical-diffusion-reactions:gpu
+    runtime: nvidia  # Requires nvidia-docker
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./outputs:/app/outputs
+      - ./data:/app/data
+    command: cdr-render types -o /app/outputs
+
+  cdr-cpu:
+    build: .
+    image: chemical-diffusion-reactions:cpu
+    volumes:
+      - ./outputs:/app/outputs
+    command: cdr-render sweep --samples 50 -o /app/outputs
+
+  jupyter:
+    build: .
+    image: chemical-diffusion-reactions:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/app/notebooks
+      - ./outputs:/app/outputs
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
+
+  dev:
+    build: .
+    image: chemical-diffusion-reactions:dev
+    volumes:
+      - .:/app
+    command: /bin/bash
+    stdin_open: true
+    tty: true

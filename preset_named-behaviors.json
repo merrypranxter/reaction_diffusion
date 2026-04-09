@@ -1,0 +1,90 @@
+{
+  "named_behaviors": [
+    {
+      "name": "Mitosis",
+      "F": 0.0367,
+      "k": 0.0649,
+      "source": "Karl Sims",
+      "tags": ["classic", "biological"],
+      "description": "Spots grow and divide like biological cells"
+    },
+    {
+      "name": "Coral Growth",
+      "F": 0.0545,
+      "k": 0.062,
+      "source": "Karl Sims",
+      "tags": ["classic", "biological", "branching"]
+    },
+    {
+      "name": "U-Skate World",
+      "F": 0.060,
+      "k": 0.0609,
+      "source": "Munafo 2009",
+      "tags": ["complex", "moving", "class4"],
+      "description": "Stable localized moving patterns"
+    },
+    {
+      "name": "Soap Bubbles",
+      "F": 0.090,
+      "k": 0.059,
+      "source": "Munafo",
+      "tags": ["surface_tension"]
+    },
+    {
+      "name": "Worms",
+      "F": 0.046,
+      "k": 0.065,
+      "source": "Pearson",
+      "tags": ["growing", "parallel"]
+    },
+    {
+      "name": "Classic Turing",
+      "F": 0.030,
+      "k": 0.055,
+      "source": "Pearson/Turing",
+      "tags": ["hexagonal", "classic"]
+    },
+    {
+      "name": "BZ Spirals",
+      "F": 0.010,
+      "k": 0.041,
+      "source": "Munafo",
+      "tags": ["spirals", "dynamic"]
+    },
+    {
+      "name": "Hedgerow Mazes",
+      "F": 0.050,
+      "k": 0.063,
+      "source": "Pearson",
+      "tags": ["mazes", "branching"]
+    },
+    {
+      "name": "Chaotic Spots",
+      "F": 0.018,
+      "k": 0.055,
+      "source": "Pearson",
+      "tags": ["chaotic", "mitosis"]
+    },
+    {
+      "name": "Moving Spots (Gliders)",
+      "F": 0.014,
+      "k": 0.054,
+      "source": "VisualPDE",
+      "tags": ["moving", "dynamic"]
+    },
+    {
+      "name": "LimbNET Stripes",
+      "F": 0.032,
+      "k": 0.059,
+      "source": "LimbNET/EMBL",
+      "tags": ["stripes", "clean"]
+    },
+    {
+      "name": "LimbNET Dots",
+      "F": 0.028,
+      "k": 0.062,
+      "source": "LimbNET/EMBL",
+      "tags": ["dots", "regular"]
+    }
+  ]
+}

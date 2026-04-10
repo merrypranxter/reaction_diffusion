@@ -1,0 +1,425 @@
+{
+  "schema_version": "1.0",
+  "description": "AI image generation prompts for all 19 Pearson Gray-Scott pattern types. Validated for use with Midjourney, DALL-E, Stable Diffusion, Flux, and Gemini.",
+  "usage_note": "Combine the 'base_prompt' with modifiers from 'color_prompts' and 'style_variations' to build complete prompts. Append 'negative_prompt' terms for Stable Diffusion workflows.",
+  "global_negative_prompt": "blurry, low quality, cartoon, anime, text, watermark, oversaturated, 3D render, border, frame, gradient background, human figure",
+  "types": [
+    {
+      "type": "R",
+      "name": "Uniform Red",
+      "F": 0.014,
+      "k": 0.057,
+      "base_prompt": "flat monochromatic dark red field, zero texture, chemical equilibrium surface, featureless abstract",
+      "expanded_prompt": "A perfectly uniform deep crimson surface with no spatial structure, like an overexposed photographic plate or annealed metal at rest. Zero pattern. Monochrome. Completely flat.",
+      "material_anchors": ["overexposed film", "annealed metal surface", "monochrome resin"],
+      "color_prompts": {
+        "classic": "deep crimson to near-black",
+        "scientific": "dark red monochrome field",
+        "artistic": "blood-red void"
+      },
+      "style_variations": {
+        "scientific": "scientific visualization, monochrome, reference baseline",
+        "artistic": "minimalist abstract art, deep red void"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 0",
+      "negative_prompt": "texture, pattern, spots, stripes, variation, noise",
+      "tags": ["uniform", "trivial", "reference", "monochrome"]
+    },
+    {
+      "type": "B",
+      "name": "Uniform Blue",
+      "F": 0.050,
+      "k": 0.059,
+      "base_prompt": "flat uniform deep blue field, zero texture, calm chemical equilibrium, featureless azure surface",
+      "expanded_prompt": "A perfectly still, deep blue surface with absolutely no pattern or variation. Evokes a calm, windless ocean from directly above, or a clear sky at noon. No texture.",
+      "material_anchors": ["still deep ocean", "clear sky", "polished sapphire"],
+      "color_prompts": {
+        "classic": "sky blue to pure white",
+        "scientific": "deep cobalt monochrome",
+        "artistic": "infinite calm azure void"
+      },
+      "style_variations": {
+        "scientific": "scientific baseline visualization, uniform field",
+        "artistic": "minimalist calm abstract, deep blue void"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 0",
+      "negative_prompt": "texture, pattern, spots, stripes, variation, noise, waves",
+      "tags": ["uniform", "trivial", "reference", "calm", "azure"]
+    },
+    {
+      "type": "α",
+      "name": "Wavelet Chaos",
+      "F": 0.010,
+      "k": 0.047,
+      "base_prompt": "turbulent chemical wave interference, chaotic overlapping spiral wavelets, constantly shifting reaction-diffusion chaos",
+      "expanded_prompt": "A turbulent field of short-lived chemical wave packets that constantly form, collide, and dissolve. Like a disturbed water surface viewed from above, with overlapping circular waves creating interference patterns. Always moving, never settling. Spatiotemporal chaos.",
+      "material_anchors": ["disturbed water surface from above", "atmospheric turbulence overhead", "breaking surf foam top-view", "aurora borealis shimmer"],
+      "color_prompts": {
+        "classic": "dark teal to bright cyan wavelets on midnight blue",
+        "scientific": "inferno colormap, black to purple to orange wave patterns",
+        "artistic": "electric neon wavelets on deep black, bioluminescent chaos"
+      },
+      "style_variations": {
+        "scientific": "scientific fluid dynamics visualization, reaction-diffusion spatiotemporal chaos",
+        "artistic": "abstract digital art, fluid turbulence, neon palette",
+        "nature": "bioluminescent ocean disturbance, aerial photography, night"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 30",
+      "negative_prompt": "static, ordered, geometric, regular spacing, solid color",
+      "tags": ["chaotic", "turbulent", "wavelets", "spirals", "dynamic", "animated"]
+    },
+    {
+      "type": "β",
+      "name": "Ocean Voids",
+      "F": 0.014,
+      "k": 0.039,
+      "base_prompt": "bioluminescent ocean wave pattern with dark drifting voids, chemical traveling waves with periodic holes",
+      "expanded_prompt": "A luminous blue ocean field swept by slow, large-scale traveling chemical waves. Dark voids — roughly circular dead zones — drift through the glowing wave field like holes in fabric. Viewed from directly above. Like bioluminescent plankton blooms with dead patches.",
+      "material_anchors": ["bioluminescent ocean aerial view", "Jovian atmosphere bands", "blood flow imaging", "petri dish culture with dead zones"],
+      "color_prompts": {
+        "classic": "electric blue waves on deep navy, black voids",
+        "scientific": "ocean colormap, light blue on midnight, dark voids",
+        "artistic": "glowing cyan and teal on obsidian black, drifting dark holes"
+      },
+      "style_variations": {
+        "scientific": "aerial oceanography visualization, chemical wave field with voids",
+        "artistic": "alien ocean surface, neon bioluminescence, dark voids",
+        "nature": "aerial bioluminescent bloom with dead zones, night photography"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 20",
+      "negative_prompt": "solid color, completely uniform, ordered geometric pattern",
+      "tags": ["oceanic", "voids", "waves", "chaotic", "dynamic"]
+    },
+    {
+      "type": "γ",
+      "name": "Unstable Stripes",
+      "F": 0.022,
+      "k": 0.051,
+      "base_prompt": "fingerprint-like organic worm stripes in perpetual rearrangement, grain boundary defects, unstable stripe phase",
+      "expanded_prompt": "Sinuous organic stripes that look like fingerprint ridges or wood grain, but constantly rearranging. The stripes align locally in small domains, but grain boundaries between domains continuously shift and heal. Like a fingerprint that can never quite decide on its final pattern.",
+      "material_anchors": ["fingerprint ridges in motion", "wood grain rearranging", "muscle fiber texture", "geological stratum cross-section"],
+      "color_prompts": {
+        "classic": "warm cream background, dark sienna worm stripes",
+        "scientific": "grayscale fingerprint-like texture",
+        "artistic": "indigo worm stripes on pale gold, dynamic rearrangement"
+      },
+      "style_variations": {
+        "scientific": "reaction-diffusion stripe phase, grain boundary dynamics",
+        "textile": "organic striped textile pattern, woven look, wood grain",
+        "nature": "fingerprint macro photograph, ridge-valley pattern"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 15",
+      "negative_prompt": "perfectly parallel, geometric, hexagonal, spots, bubbles, static",
+      "tags": ["stripes", "fingerprint", "wood-grain", "unstable", "organic", "dynamic"]
+    },
+    {
+      "type": "δ",
+      "name": "Turing Spots",
+      "F": 0.030,
+      "k": 0.055,
+      "base_prompt": "hexagonal array of dark spots on light cream background, Turing pattern, cheetah-like spot organization, natural biological patterning",
+      "expanded_prompt": "A near-perfect hexagonal lattice of dark circular spots on a light background. The spots are uniformly sized and spaced, arranged in the characteristic honeycomb geometry of close-packing. Looks exactly like cheetah fur or leopard skin spots. These are 'negative' spots — dark holes in a bright field.",
+      "material_anchors": ["cheetah fur patterning", "leopard skin spots", "butterfly wing eyespots", "bubble raft close-packing"],
+      "color_prompts": {
+        "classic": "warm ivory background, dark chocolate brown spots, cheetah palette",
+        "leopard": "golden amber background, black rosette spots",
+        "scientific": "white background, dark gray circular spots, precise spacing",
+        "artistic": "electric turquoise field, deep navy hexagonal spots"
+      },
+      "style_variations": {
+        "scientific": "Turing pattern, hexagonal spot array, reaction-diffusion biology",
+        "textile": "polka dot textile pattern, hexagonal organization, natural material",
+        "nature": "cheetah fur macro photograph, natural spot patterning, biological"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 5",
+      "negative_prompt": "stripes, worms, bubbles, foam, spirals, irregular spacing, large blobs",
+      "tags": ["spots", "hexagonal", "Turing", "static", "cheetah", "leopard", "biological"]
+    },
+    {
+      "type": "ε",
+      "name": "Chaotic Mitosis",
+      "F": 0.018,
+      "k": 0.055,
+      "base_prompt": "chaotic dividing cell pattern, blobs undergoing mitosis, amoeba colony splitting chaos",
+      "expanded_prompt": "A dynamic field of cellular blobs in continuous mitotic division. Each blob grows, elongates along an axis, pinches in the middle, and splits into two daughter cells that immediately begin growing again. Chaotic because division direction and timing are unpredictable. Looks exactly like time-lapse cell division.",
+      "material_anchors": ["dividing cells time-lapse", "amoeba colony splitting", "lava lamp globules", "bacteria culture phase contrast"],
+      "color_prompts": {
+        "classic": "dark magenta blobs on black, glowing cell division",
+        "microscopy": "green fluorescent blobs on dark background, biology microscopy",
+        "artistic": "orange glowing blobs on midnight, organic chaos"
+      },
+      "style_variations": {
+        "scientific": "fluorescence microscopy aesthetic, cell division imaging",
+        "artistic": "dark organic generative art, blob mitosis, living pattern",
+        "nature": "amoeba colony time-lapse, biology, growth"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 25",
+      "negative_prompt": "ordered, geometric, hexagonal, stripes, static, frozen",
+      "tags": ["mitosis", "chaotic", "dividing-cells", "biological", "dynamic"]
+    },
+    {
+      "type": "ζ",
+      "name": "Stable Chaotic Spots",
+      "F": 0.022,
+      "k": 0.061,
+      "base_prompt": "ordered cell colony with subtle pulsing, stable dot array with occasional reorganization, frog skin texture",
+      "expanded_prompt": "An array of round spots that slowly pulse and occasionally divide, but maintain more regularity than pure chaotic mitosis. Like a carefully grown cell colony in a petri dish. The spots breathe with a subtle size oscillation. Frog skin or salamander pattern texture.",
+      "material_anchors": ["frog skin texture", "ordered cell culture", "bubble foam settled", "salamander spots"],
+      "color_prompts": {
+        "classic": "olive green spots on pale cream, frog skin coloration",
+        "amber": "amber spots on warm tan, natural organic",
+        "scientific": "dark circular spots on light background, moderate regularity"
+      },
+      "style_variations": {
+        "scientific": "cell biology visualization, stable colony",
+        "textile": "natural spot textile, frog skin pattern",
+        "nature": "amphibian skin macro photography, spotted pattern"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 12",
+      "negative_prompt": "perfectly regular, geometric, hexagonal lattice, stripes, worms",
+      "tags": ["spots", "stable", "frog-skin", "pulsing", "biological"]
+    },
+    {
+      "type": "η",
+      "name": "Spots and Worms",
+      "F": 0.034,
+      "k": 0.063,
+      "base_prompt": "mixed spot and worm-stripe animal pattern, giraffe flank texture, brain coral surface with spots and ridges",
+      "expanded_prompt": "A rich, complex biological texture where circular spots and elongated worm-like stripes coexist in the same field. Different regions are dominated by either morphology, creating patch territories. The boundary zones where spots transition into stripes are particularly rich and detailed. Giraffe skin patterning.",
+      "material_anchors": ["giraffe flank pattern", "brain coral surface", "dalmatian spots merging into stripes", "mixed terrain aerial"],
+      "color_prompts": {
+        "classic": "warm ochre and sienna on cream, giraffe coloration",
+        "coral": "tan and orange-brown on pale background, tropical",
+        "artistic": "deep purple worms and spots on black, organic complexity"
+      },
+      "style_variations": {
+        "scientific": "reaction-diffusion mixed morphology, Turing pattern transition zone",
+        "textile": "giraffe pattern textile, natural mixed motif",
+        "nature": "giraffe skin macro, brain coral surface photograph"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 18",
+      "negative_prompt": "pure stripes only, pure spots only, uniform, geometric, crystalline",
+      "tags": ["mixed", "spots", "worms", "giraffe", "brain-coral", "naturalistic"]
+    },
+    {
+      "type": "θ",
+      "name": "Ring Growth Stripes",
+      "F": 0.030,
+      "k": 0.057,
+      "base_prompt": "concentric ring growth pattern, tree ring cross-section texture, topographic contour map, agate stone rings",
+      "expanded_prompt": "Multiple sets of concentric circular rings, each set centered on a different nucleation point. The rings are roughly parallel bands that interfere where different ring systems meet. Like looking at a cross-section of a tree trunk, or the growth rings visible in an agate stone. Frozen concentric ripples.",
+      "material_anchors": ["tree ring cross-section", "agate stone cut", "topographic contour map", "stone ripple pattern"],
+      "color_prompts": {
+        "classic": "warm amber bands on dark brown, agate stone coloration",
+        "topographic": "alternating earth tones, map contour styling",
+        "scientific": "dark and light alternating rings, scientific imaging"
+      },
+      "style_variations": {
+        "scientific": "growth ring pattern, concentric chemical wave frozen",
+        "geological": "agate stone cross-section macro, mineral bands",
+        "cartographic": "topographic contour map aesthetic, terrain elevation bands"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 8",
+      "negative_prompt": "straight lines, spirals, spots, foam, random chaos",
+      "tags": ["concentric", "rings", "agate", "tree-rings", "geological", "static"]
+    },
+    {
+      "type": "ι",
+      "name": "Molecular Negatons",
+      "F": 0.046,
+      "k": 0.0594,
+      "base_prompt": "dark spots sparsely scattered on bright field, molecular gas particle arrangement, inverse polka dot pattern",
+      "expanded_prompt": "Small dark circular holes evenly distributed across a bright luminous background. The spots are negative — dark voids in a light field — and maintain characteristic minimum spacing like molecules in a gas. Like a photographic negative of a polka dot pattern, or film grain in reverse.",
+      "material_anchors": ["film grain negative", "molecular gas top view", "reverse polka dot", "dark spots on X-ray film"],
+      "color_prompts": {
+        "classic": "bright sky blue background, dark navy circular spots",
+        "scientific": "white background, dark spots, scientific imaging",
+        "artistic": "luminous cream field, precise dark indigo dots"
+      },
+      "style_variations": {
+        "scientific": "2D molecular gas visualization, particle spacing pattern",
+        "textile": "reverse polka dot textile, dark dots on light field",
+        "photographic": "high-key photograph with dark circular elements"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 6",
+      "negative_prompt": "bright spots on dark background, stripes, irregular, chaotic, dense coverage",
+      "tags": ["negatons", "negative-spots", "sparse", "molecular", "inverse"]
+    },
+    {
+      "type": "κ",
+      "name": "Hedgerow Mazes",
+      "F": 0.050,
+      "k": 0.063,
+      "base_prompt": "branching dendritic labyrinth channels, aerial view of river delta, hedge maze overhead view, dendritic crystal growth",
+      "expanded_prompt": "Long branching channels that divide at Y-junctions, creating a tree-like labyrinthine network. No closed loops anywhere — the topology is purely dendritic (tree-like). The channel walls are thick with a narrow void corridor inside. Like a hedge maze seen from a helicopter, or a river delta from satellite.",
+      "material_anchors": ["river delta satellite view", "hedge maze aerial view", "dendritic crystal structure", "lightning branch pattern"],
+      "color_prompts": {
+        "classic": "dark forest green channels on sandy tan background",
+        "river": "dark blue channels on light sand, delta map",
+        "scientific": "dark stripes on light background, dendritic network"
+      },
+      "style_variations": {
+        "scientific": "dendritic pattern, labyrinthine topology, tree network",
+        "geological": "river delta aerial photography, satellite imagery",
+        "architectural": "maze overhead view, hedge labyrinth aerial"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 10",
+      "negative_prompt": "circular loops, closed shapes, spots, foam bubbles, regular grid",
+      "tags": ["maze", "dendritic", "branching", "river-delta", "labyrinth", "static"]
+    },
+    {
+      "type": "λ",
+      "name": "Mitotic Hexagons",
+      "F": 0.026,
+      "k": 0.061,
+      "base_prompt": "perfect hexagonal spot lattice, honeycomb-organized circular dots, crystalline self-organized spot array",
+      "expanded_prompt": "Circular spots arranged in a near-perfect hexagonal lattice — the most ordered packing of circles possible. Unlike type delta which has negative spots (holes), these are positive spots (raised islands) on a dark background. The arrangement emerged through self-organized mitosis. Like a crystallized soap bubble raft or a hexagonal-packed protein array.",
+      "material_anchors": ["soap bubble raft top view", "hexagonal close-packing", "protein crystal array", "honeycomb seen from above"],
+      "color_prompts": {
+        "classic": "golden yellow circular spots on deep brown background, honeycomb",
+        "crystalline": "white spots on black background, perfect lattice",
+        "artistic": "electric cyan spheres on midnight blue, crystalline order"
+      },
+      "style_variations": {
+        "scientific": "hexagonal close-packed spot lattice, crystallization pattern",
+        "textile": "hexagonal dot textile, honeycomb pattern fabric",
+        "nature": "soap bubble raft macro, close-packed foam"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 5",
+      "negative_prompt": "stripes, worms, irregular spacing, chaotic, bubbles, negative-space spots",
+      "tags": ["hexagonal", "spots", "honeycomb", "crystalline", "static", "ordered"]
+    },
+    {
+      "type": "μ",
+      "name": "Growing Worms",
+      "F": 0.046,
+      "k": 0.065,
+      "base_prompt": "perfectly parallel worm-like organic stripes, corduroy fabric texture, aligned biological fiber pattern, zebra stripe regular",
+      "expanded_prompt": "Long, approximately parallel organic stripes that span the entire field. Unlike the unstable stripes of type gamma, these have settled into a stable parallel arrangement like noodles laid side by side. The pattern has a strong directionality. Corduroy fabric, parallel muscle fibers, or one-direction zebra stripes.",
+      "material_anchors": ["corduroy fabric texture", "parallel muscle fibers", "one-direction zebra stripes", "noodle arrangement"],
+      "color_prompts": {
+        "classic": "black and white parallel stripes, zebra pattern",
+        "warm": "dark brown stripes on warm cream, corduroy wood",
+        "artistic": "deep indigo parallel worms on pale lavender"
+      },
+      "style_variations": {
+        "scientific": "stable stripe phase, parallel worm pattern, reaction-diffusion",
+        "textile": "corduroy fabric texture, parallel organic weave",
+        "nature": "zebra stripe macro, parallel biological stripe pattern"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 8",
+      "negative_prompt": "spots, bubbles, spirals, chaotic, maze, hexagonal, closed loops",
+      "tags": ["worms", "parallel", "stripes", "corduroy", "zebra", "static", "textile"]
+    },
+    {
+      "type": "ν",
+      "name": "Inert Solitons",
+      "F": 0.054,
+      "k": 0.067,
+      "base_prompt": "sparse isolated glowing spots on black background, particle field, distant starfield, frozen soliton particles",
+      "expanded_prompt": "A small number of perfectly stable, isolated circular spots scattered sparsely across a dark void. Each spot is completely independent — they neither divide, merge, nor travel. They simply exist, maintaining characteristic spacing through long-range repulsion. Like a particle field or distant starfield.",
+      "material_anchors": ["starfield photograph", "isolated bubbles in thick resin", "sparse particle field", "distant galaxy dots"],
+      "color_prompts": {
+        "classic": "glowing white spots on pure black, starfield",
+        "warm": "amber glowing dots on dark background",
+        "scientific": "white circular spots on black, particle physics aesthetic"
+      },
+      "style_variations": {
+        "scientific": "isolated soliton particles, sparse field visualization",
+        "cosmic": "starfield photograph, isolated celestial objects, deep space",
+        "artistic": "minimal dark art, sparse glowing particles"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 3",
+      "negative_prompt": "dense, connected, stripes, bubbles, foam, chaotic, moving, touching spots",
+      "tags": ["solitons", "sparse", "isolated", "starfield", "minimal", "static"]
+    },
+    {
+      "type": "ξ",
+      "name": "Spirals",
+      "F": 0.010,
+      "k": 0.041,
+      "base_prompt": "rotating chemical spiral waves, Belousov-Zhabotinsky reaction pattern, galaxy-like spiral arms, hypnotic rotating spirals",
+      "expanded_prompt": "Large sustained spiral waves emanating from multiple rotating organizing centers. The arms rotate continuously and can span much of the field. Multiple spiral cores compete for space. Identical in character to the famous Belousov-Zhabotinsky oscillating chemical reaction. Also resembles a galaxy viewed edge-on, or a slow-motion hurricane.",
+      "material_anchors": ["BZ chemical reaction photograph", "spiral galaxy photograph", "hurricane aerial view", "ammonite shell cross-section"],
+      "color_prompts": {
+        "classic": "deep red and orange spiral arms on navy blue",
+        "cosmic": "electric blue spiral arms on black, galaxy",
+        "scientific": "phase-mapped spiral waves, rainbow cyclic colormap"
+      },
+      "style_variations": {
+        "scientific": "BZ reaction oscillating spiral waves, chemical oscillation",
+        "cosmic": "spiral galaxy macro, cosmic rotation, celestial",
+        "hypnotic": "hypnotic rotating spiral abstract, meditation visual"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 15",
+      "negative_prompt": "concentric circles, spots, stripes, static, frozen, no rotation",
+      "tags": ["spirals", "BZ-reaction", "galaxy", "rotating", "dynamic", "hypnotic"]
+    },
+    {
+      "type": "π",
+      "name": "U-Skate World",
+      "F": 0.062,
+      "k": 0.061,
+      "base_prompt": "self-propelled autonomous chemical structures moving through field, reaction-diffusion gliders, computational complexity pattern",
+      "expanded_prompt": "Small autonomous structures that move through the chemical field like living organisms. Each unit is self-propelled and maintains its form while traveling. The field is an ecology of these entities — some collide and annihilate, others spawn new ones. The most computationally complex reaction-diffusion pattern. Like Game of Life gliders in a continuous chemical medium.",
+      "material_anchors": ["Game of Life gliders", "self-propelled particle simulation", "active matter physics", "autonomous robot swarm visualization"],
+      "color_prompts": {
+        "classic": "bright green moving structures on deep black, Matrix aesthetic",
+        "scientific": "high-contrast moving localized structures, particle tracking",
+        "artistic": "luminous moving entities on void, active matter"
+      },
+      "style_variations": {
+        "scientific": "autonomous localized chemical structures, active matter simulation",
+        "computational": "cellular automaton gliders, computational complexity, emergent",
+        "artistic": "alien life forms, self-propelled particles, dark field"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 20",
+      "negative_prompt": "static, ordered, geometric, regular, symmetric, frozen",
+      "tags": ["gliders", "autonomous", "moving", "complex", "computational", "animated"]
+    },
+    {
+      "type": "ρ",
+      "name": "Red Soap Bubbles",
+      "F": 0.090,
+      "k": 0.059,
+      "base_prompt": "soap bubble foam closed-cell structure, warm-toned cellular foam, Voronoi cell pattern with surface tension borders",
+      "expanded_prompt": "Roughly circular closed cells bordered by a network of thin stripes. The interior of each cell is a distinct chemical state from the exterior. The topology is foam-like — cells pack together like soap bubbles, with three-way junctions where borders meet. The overall impression is surface tension in a warm, reddish field.",
+      "material_anchors": ["soap bubble foam side view", "dried paint cells", "Voronoi diagram organic", "cracked earth aerial view"],
+      "color_prompts": {
+        "classic": "warm red-orange cell interiors, deep blue border network",
+        "earth": "terracotta cell centers, dark brown borders, dried mud",
+        "artistic": "scarlet and gold cells, deep indigo borders"
+      },
+      "style_variations": {
+        "scientific": "closed-cell foam topology, surface tension chemical pattern",
+        "geological": "dried mud crackle pattern, dessication cells",
+        "artistic": "stained glass warm tones, cellular division pattern"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 10",
+      "negative_prompt": "open channels, no closed loops, spots without borders, stripes without foam",
+      "tags": ["bubbles", "cellular", "foam", "Voronoi", "static", "surface-tension"]
+    },
+    {
+      "type": "σ",
+      "name": "Blue Soap Bubbles",
+      "F": 0.090,
+      "k": 0.057,
+      "base_prompt": "blue cellular foam pattern, cool-toned closed-cell structure, stained glass cell network, ice crystal cellular texture",
+      "expanded_prompt": "The cool-toned twin of the red soap bubble pattern. Closed blue cells arranged in a foam topology, each enclosed by a thin border network. The blue interior feels transparent and cool, like stained glass or ice crystal facets. A Voronoi-like cell division pattern in cold hues.",
+      "material_anchors": ["stained glass blue cells", "ice crystal facet pattern", "bubble chamber photograph", "cool foam aerial view"],
+      "color_prompts": {
+        "classic": "pale ice-blue cells, deep indigo border network",
+        "stained-glass": "sky blue and cobalt cells, dark border leading",
+        "scientific": "light blue cells on dark background, foam topology"
+      },
+      "style_variations": {
+        "scientific": "blue cellular foam, cool closed-cell pattern",
+        "architectural": "stained glass window design, cellular blue pattern",
+        "nature": "ice crystal cellular texture, frozen foam"
+      },
+      "midjourney_suffix": "--style raw --ar 1:1 --chaos 10",
+      "negative_prompt": "warm colors, spots without borders, open channels, stripes without foam",
+      "tags": ["bubbles", "cellular", "foam", "stained-glass", "cool", "static"]
+    }
+  ]
+}

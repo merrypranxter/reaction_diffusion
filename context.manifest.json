@@ -1,0 +1,22 @@
+{
+  "description": "Reaction-diffusion math, shaders, and presets for RepoScripter2 generative art context",
+  "files": [
+    "README.md",
+    "docs/01-mathematical-foundations.md",
+    "docs/02-gray-scott-deep-dive.md",
+    "docs/03-pearson-classification.md",
+    "docs/07-coloring-strategies.md",
+    "docs/11-shader-library-guide.md",
+    "docs/12-webgl-integration.md",
+    "shaders/gray-scott-sim.frag",
+    "shaders/color-ramps.glsl",
+    "shaders/display-munafo.frag",
+    "presets/named-behaviors.json",
+    "presets/pearson-types.json",
+    "presets/visual-descriptions.json",
+    "prompts/pearson-type-prompts.json",
+    "core/gray_scott.py",
+    "core/parameters.py",
+    "examples/threejs-webgl/README.md"
+  ]
+}
